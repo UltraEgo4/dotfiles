@@ -1,0 +1,146 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: fusion-pixel-12px-monospaced-latin;
+    font-size: 15px;
+}
+
+/* the whole bar -----------------------------------*/
+
+window#waybar {
+    background-color:#E0DFD6; 
+    /*color: #E0DFD6;
+    border-radius: 25px;
+    padding: 20px;
+    */
+}
+
+/* buttons  -----------------------------------*/
+
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background-color: #99B3BB;
+    /*color: #ffffff;*/
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#workspaces button.active {
+    background-color: #64727D;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+/*modules ------------------------------*/
+
+#clock,
+#battery,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#tray,
+
+#window,
+
+#workspaces {
+    margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    font-family: 'digital-7', monospace; /* Choose a suitable digital font */
+    font-size: 30px; /* Adjust the font size as needed */
+    color: #000000; /* Choose the color for the digits */
+    letter-spacing: 4px; /* Adjust the letter spacing for a digital effect */
+    /*text-shadow: 2px 2px 2px #000000;*/ /* Add a subtle shadow for depth */
+}
+
+#battery {
+}
+
+#battery.charging, #battery.plugged {
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+#battery.critical:not(.charging) {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+
+#backlight {
+}
+
+
+#pulseaudio {
+}
+
+#pulseaudio.muted {
+}
+
+#wireplumber {
+}
+
+#wireplumber.muted {
+}
+
+#tray {
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+
+
+
+
+
+
+
